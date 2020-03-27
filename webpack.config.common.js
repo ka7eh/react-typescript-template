@@ -25,7 +25,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(t|j)sx?$/,
+                test: /\.[tj]sx?$/,
                 exclude: /node_modules/,
                 use: [
                     'babel-loader',
@@ -82,18 +82,6 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: 'files/[name]-[hash].[ext]'
-                        }
-                    }
-                ]
-            },
-            {
-                test: /.html$/,
-                exclude: /.*\/index.html$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: 'pages/[name]-[hash].html'
                         }
                     }
                 ]

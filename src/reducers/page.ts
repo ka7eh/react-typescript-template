@@ -1,19 +1,22 @@
-import { RecordOf, fromJS } from 'immutable';
+import { Record, RecordOf } from 'immutable';
 
-import { ACTIONS, ActionType } from '../actions/page';
+import { ACTIONS, ActionType, PageStatus } from '../actions/page';
 
-type State = RecordOf<{
-    isLoading: boolean;
+export type PageState = RecordOf<{
+    status: PageStatus;
 }>;
 
-const INITIAL_STATE = fromJS({
-    isLoading: false
-});
+export const INITIAL_PAGE_STATE = Record({
+    status: PageStatus.Loading
+})();
 
-export default (state: State = INITIAL_STATE, action: ActionType): State => {
+export default (
+    state: PageState = INITIAL_PAGE_STATE,
+    action: ActionType
+): PageState => {
     switch (action.type) {
-        case ACTIONS.UPDATE_LOADING_STATUS:
-            return state.set('isLoading', action.isLoading);
+        case ACTIONS.UPDATE_PAGE_STATUS:
+            return state.set('status', action.status);
         default:
             return state;
     }

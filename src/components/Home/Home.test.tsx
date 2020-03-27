@@ -1,9 +1,11 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import Home from './Home';
+
+import { renderWithRedux } from '../../tests/utils/redux';
+
+import Home from '.';
 
 test('renders home header', () => {
-    const { getByText } = render(<Home />);
+    const { getByText } = renderWithRedux({ children: <Home /> });
     const linkElement = getByText(/Hello World/i);
     expect(linkElement).toBeInTheDocument();
 });

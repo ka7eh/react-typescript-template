@@ -1,10 +1,11 @@
 {
   "extends": [
     "airbnb",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
+    "prettier",
     "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "env": {
     "browser": true,
@@ -73,13 +74,6 @@
     ],
     "import/no-extraneous-dependencies": 0,
     "import/prefer-default-export": "off",
-    "indent": [
-      "error",
-      4,
-      {
-        "SwitchCase": 1
-      }
-    ],
     "max-len": [
       "warn",
       {
@@ -97,7 +91,8 @@
       "error",
       {
         "allow": [
-          "error"
+          "error",
+          "warn"
         ]
       }
     ],
@@ -172,13 +167,20 @@
         ]
       }
     ],
-    "react/jsx-indent": "off",
+    "react/jsx-indent": [
+      "error",
+      4
+    ],
     "react/jsx-indent-props": [
       "error",
       4
     ],
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-spreading": "off",
+    "react/jsx-space-before-closing": [
+      "error",
+      "always"
+    ],
     "react/jsx-wrap-multilines": "off",
     "react/jsx-uses-vars": 2,
     "react/jsx-uses-react": 2,

@@ -1,17 +1,23 @@
-const UPDATE_LOADING_STATUS = 'UPDATE_LOADING_STATUS';
-type UpdateLoadingStatusAction = {
-    type: 'UPDATE_LOADING_STATUS';
-    isLoading: boolean;
-};
-export const updateLoadingStatus = (
-    isLoading: boolean
-): UpdateLoadingStatusAction => ({
-    type: UPDATE_LOADING_STATUS,
-    isLoading
+export enum PageStatus {
+    Ready = 'Ready',
+    Loading = 'Loading',
+    Error = 'Error'
+}
+
+const UPDATE_PAGE_STATUS = 'UPDATE_PAGE_STATUS';
+interface UpdatePageStatusAction {
+    type: 'UPDATE_PAGE_STATUS';
+    status: PageStatus;
+}
+export const updatePageStatus = (
+    status: PageStatus
+): UpdatePageStatusAction => ({
+    type: UPDATE_PAGE_STATUS,
+    status
 });
 
-export type ActionType = UpdateLoadingStatusAction;
+export type ActionType = UpdatePageStatusAction;
 
 export const ACTIONS = {
-    UPDATE_LOADING_STATUS
+    UPDATE_PAGE_STATUS
 };
